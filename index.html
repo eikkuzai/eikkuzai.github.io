@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>Monthly €</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Monthly💲</h1>
+
+        <div class="sub-container">
+          <!-- Budget -->
+          <div class="total-amount-container">
+            <h3>Tulot & Säästöt 💰</h3>
+            <p class="hide error" id="budget-error">
+              Arvo ei voi olla tyhjä
+            </p>
+            <input
+              type="number"
+              pattern="[0-9]*"
+              id="total-budget-input"
+              placeholder="Budjetti"
+            />
+            <button class="submit" id="total-budget-button">
+              Aseta budjetti
+            </button>
+            <input
+              type="number"
+              pattern="[0-9]*"
+              id="total-savings-input"
+              placeholder="Säästö"
+            />
+            <button class="submit" id="total-savings-button">
+              Aseta säästöt
+            </button>
+          </div>
+
+          <!-- Expenditure -->
+          <div class="user-amount-container">
+            <h3>Menot 💸</h3>
+            <p class="hide error" id="product-title-error">
+              Arvo ei voi olla tyhjä
+            </p>
+            <select name="kulukategoriat" id="expense-categories-select">
+              <option value="Laina/Vastike">Laina/Vastike</option>
+              <option value="Auto/Bensa">Auto/Bensa</option>
+              <option value="Kauppa">Kauppa</option>
+              <option value="Netti">Netti</option>
+              <option value="Muu">Muut kulut</option>
+              <option value="Viihde">Viihde</option>
+            </select>
+            <input
+              type="text"
+              class="product-title"
+              id="custom-expense-name-input"
+              placeholder="Menon nimi"
+            />
+            <input
+              type="number"
+              pattern="[0-9]*"
+              id="custom-expense-amount-input"
+              placeholder="Summa"
+            />
+            <button class="submit" id="custom-expense-button">Lisää meno</button>
+          </div>
+        </div>
+        <!-- List -->
+        <div class="list">
+          <h3>Menot listattuna 📝</h3>
+          <div class="list-container" id="expenses-list"></div>
+        </div>
+        <!-- Output -->
+        <h3>Kiinteät kulut:</h3>
+        <h6>(Muuta kiinteitä kuluja ennen budjetin lisäämistä)</h6>
+
+        <div class="kulut flex-space">
+          <div>
+            <p>Asunto 🏠</p>
+            <span id="laina"></span>
+            <br />
+            <div class="laina-edit-container"></div>
+          </div>
+          <div>
+            <p>Auto 🚗</p>
+            <span id="auto"></span>
+            <br />
+            <div class="auto-edit-container"></div>
+          </div>
+          <div>
+            <p>Kauppa 🥩</p>
+            <span id="kauppa"></span>
+            <br />
+            <div class="kauppa-edit-container"></div>
+          </div>
+
+          <div>
+            <p>Netti 💻</p>
+            <span id="netti"></span>
+            <br />
+            <div class="netti-edit-container"></div>
+          </div>
+          <div>
+            <p>Muut 😮</p>
+            <span id="muut"></span>
+            <br />
+            <div class="muut-edit-container"></div>
+          </div>
+          <div>
+            <p>Viihde 📺</p>
+            <span id="viihde"></span>
+            <br />
+            <div class="viihde-edit-container"></div>
+          </div>
+        </div>
+        <h3>Kuluva kuukausi:</h3>
+
+        <div class="ongoing-month savings flex-space">
+          <div>
+            <p>Budjetti 💰</p>
+            <span id="budget-amount"></span>
+          </div>
+          <div>
+            <p>Viikko 📅</p>
+            <span id="balance-amount"></span>
+          </div>
+
+          <div>
+            <p>Säästötili 💲</p>
+            <span id="saastotili-amount"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="savebuttons">
+        <button class="submit-newmonth" id="clearMonth" onclick="clearMonth()">
+          Nollaa luvut
+        </button>
+
+        <!-- <button class="submit-saveall" id="savelocal">
+          Tallenna muutokset
+        </button>-->
+      </div>
+
+      <div class="footer">
+        <h3>
+          <a href="https://instagram.com/juho.codes" target="_blank">
+            @juho.codes
+          </a>
+        </h3>
+
+      </div>
+    </div>
+    <!-- Script -->
+    <script type="module" src="monthly2.js"></script>
+  </body>
+</html>
